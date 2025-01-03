@@ -1,0 +1,164 @@
+\documentclass[titlepage]{article}
+
+\usepackage{preamble}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\newpage \newsection{Introduction.}
+
+\subsection{Introduction.} Introduction.
+
+\subsection{Remark.} These notes follow the material presented in EN.553.420 taught by Professor Fred Torcaso during the semester of Spring 2024 at The Johns Hopkins University. These notes shall be brief as they are meant to supplement the lectures, homeworks, and notes provided by Professor Torcaso.
+
+\newpage \newsection{Probability Spaces.}
+
+\subsection{Introduction} Probabilty Spaces.
+
+\subsection{Remark.} The following definitions shall be informal. For a more formal treatment of probability, please refer to the EN.553.430 Mathematical Statistics.
+
+\subsection{Remark.} In this class, we shall investigate three notions of probabiliy:
+\begin{enumerate}
+\item[(1)] Classical probability.
+\item[(2)] Discrete probability.
+\item[(3)] Continuous probability.
+\end{enumerate}
+We shall see that each of these frameworks satisfies the below axioms.
+
+\subsection{Definition.} A sample space is a set denoted by the symbol $\Omega$.
+
+\subsection{Definition.} The event space $\mathcal{F}$ is a collection of subsets of $\Omega$. An event is denoted by the symbol $A$. (Formally, the event space $\mathcal{F}$ is a sigma-algebra.)
+
+\subsection{Definition.} A probability measure is a function $P: \mathcal{F} \to \mathbb{R}$ subject to the three Komolgorov Axioms:
+\begin{enumerate}
+\item[(1)] $\forall A \in \mathcal{F}, P(A) \geq 0.$ (Nonnegativity.)
+\item[(2)] $P(\Omega) = 1.$ (Normaliziation.)
+\item[(3)] If $A_{1}, A_{2}, \ldots \subseteq \Omega$ is a countable sequence of disjoint events, i.e, for any $i \neq j, A_{i} \cap A_{j} = \emptyset$, then 
+$$P\left(\bigcup_{i=1}^{\infty}A_{i}\right) = \sum_{i=1}^{n}P(A_{i}).$$
+(Countable additivity.)
+\end{enumerate}
+
+\subsection{Definition.} A probability space is an ordered triple $(\Omega, \mathcal{F}, P)$.
+
+\subsection{Theorem.} From the Komolgorov axioms, we find 
+that the probability of the empty set is 
+$$P(\emptyset) = 0$$
+and that if $A_{1}, \ldots, A_{n} \subseteq \Omega$ is a finite sequence of disjoint events, then 
+$$P\left(\bigcup_{i=1}^{n}A_{i}\right) = \sum_{i=1}^{n}P(A_{i})$$
+and that for any two events $A, B \subseteq \Omega$, 
+$$P(A \cup B) = P(A) + P(B) - P(A \cap B).$$
+
+\subsection{Proof.} (Continued.) The proof is presented in lecture. The reproduction of the proof is left as an exercise to the student.
+
+\subsection{Theorem.} (Inclusion-exclusion principle.) Suppose that $A_{1}, \ldots, A_{n} \subseteq \Omega$ is a finite sequence of events. The probability of the union is the sum of all of the probabilities $i$-intersections with alternating signs. The notation is cumbersome, so the example for $n = 3$ is 
+$$P(A \cup B \cup C) = P(A) + P(B) + P(C) - P(A \cap B) - P(A \cap C) - P(B \cap C) + P(A \cap B \cap C).$$
+
+\subsection{Proof.} (Continued.) The proof is by induction.
+
+\newpage \newsection{Combinatorics.}
+
+\subsection{Combinatorics.} Combinatorics.
+
+\subsection{Definition.} If $n \in \mathbb{N}$, then then the factorial is defined as 
+$$n! = n(n-1)\ldots1.$$
+If $n = 0$, then the empty product is defined as 
+$$0! = 1.$$
+
+\subsection{Definition.} Suppose that we have $n$ objects from which we want to choose an ordered permutation of $k$ objects. Then, the number of permutations is given by the falling factorial 
+$$(n)_{k} = \frac{n!}{(n-k)!}.$$
+
+\subsection{Definition.} Suppose that we have $n$ objects from which we want to choose an unordered subset of $k$ objects. Then, the number of subsets is given by the binomial coefficient 
+$$\binom{n}{k} = \frac{n!}{k!(n-k)!},$$
+which is pronounced '$n$ choose $k$'. Observe that 
+$$\binom{n}{k} = \binom{n}{n-k}.$$
+
+\subsection{Theorem.} (Pascal's identity.) 
+$$\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}.$$
+
+\subsection{Proof.} (Continued.) The proof is left as an exercise to the student.
+
+\subsection{Theorem.} (Binomial theorem.) If $a, b \in \mathbb{R}$ and $n = 1, 2, \ldots$, then 
+$$(a + b)^{n} = \sum_{k=1}^{n}\binom{n}{k}a^{n}b^{n-k}.$$
+
+\subsection{Corollary.} (Continued.)
+$$\sum_{k=1}^{n}\binom{n}{k} = 2^{n}.$$
+We may interpret this corollary as that if $A$ is a set with $n$ elements, then the power set, i.e., the set of all subsets, of $A$ has $2^{n}$ elements.
+
+\subsection{Example.} The number of anagrams of $PEEPEE$ is 
+$$\binom{6}{2} = \frac{6!}{2!4!}$$
+because we choose $2$ of the positions to be $P$ and the rest to be $E$. Alternatively, we may realize that there are $6!$ ways to arrange the six letters and that within each group, there are $2!$ and $4!$ ways, respectively, to arrange the letters within a group such that the result is identical.
+
+\subsection{Definition.} If $n, k_{1}, \ldots, k_{K} \in \mathbb{N}$ and $k_{1} + \ldots + k_{K} = n$, then the multinomial coefficient is defined 
+$$\binom{n}{k_{1},\ldots,k_{K}} = \frac{n!}{k_{1}!\ldots k_{K}!}.$$
+If $k_{1} + \ldots k_{K} < n$, then we take that 
+$$\binom{n}{k_{1},\ldots,k_{K}} = \binom{n}{k_{1},\ldots,k_{K},n-k_{1}-\ldots-k_{K}}.$$
+To be clear, however, it is good practice to ensure that $k_{1} + \ldots + k_{K} = n$.
+
+\subsection{Example.} The number of anagrams of $PEEPEEPOOPOO$ is 
+$$\binom{12}{4,4,4} = \frac{12!}{4!4!4!}$$
+with similar reasoning as with example 2.10.
+
+\subsection{Definition.} A multiset is a collection of objects where objects may be repeated, i.e., the objects have a multiplicity. A multiset is denoted with curly braces, e.g.,  
+$$\{A, B, B, \ldots\}.$$
+
+\subsection{Theorem.} (Stars and bars.) Suppose that we have $r$ distinguishable bins into which we want to place $n$ indistinguishable objects. Then, the number of ways to do so is given by 
+$$\binom{n+r-1}{n} = \binom{n+r-1}{r-1}.$$
+
+\subsection{Proof.} (Continued.) We enumerate the bins $i = 1, \ldots, r$. To each bin $i$, we want to assign $n_{i}$ balls such that $n_{1} + \ldots + n_{r} = n$. But the ways to do so are in bijection with the anagrams of $n$ stars $\star$ and $k$ bars $\vert$ where the stars denote the balls and the bars denote the boundaries between the bins. We realize that there are 
+$$\binom{n+r-1}{n} = \binom{n+r-1}{r-1}$$
+such anagrams.
+
+\subsection{Corollary.} (Continued.) The number of multisets of $n$ elements with $r$ distinct labels allowed is 
+$$\binom{n+r-1}{n} = \binom{n+r-1}{r-1}.$$
+
+\subsection{Corollary.} (Continued.) The number of integer $r$-partitions of $n$, i.e., the number of integer solutions to $n_{1} + \ldots + n_{r} = n$ is 
+$$\binom{n+r-1}{n} = \binom{n+r-1}{r-1}.$$
+
+\subsection{Lemma.} Suppose that we have a two-step experiment. There are $m$ ways to perform the first step. For each of those ways, there are $n$ ways to perform the second step. Then, there are $mn$ ways to perform the experiment in total.
+
+\newpage \newsection{Classical Probability.}
+
+\subsection{Introduction.} Classical Probability.
+
+\subsection{Definition.} Suppose that $\Omega$ is a finite set and $A \subseteq \Omega$. Furthermore, suppose that every singleton subset of $\Omega$ is equiprobable. Then, 
+$$P(A) = \frac{|\Omega|}{|A|}$$
+where $|\cdot|$ denotes the cardinality of the set $\cdot$.
+
+\subsection{Remark.} Since every singleton event is equiprobable, then we may determine the probability of a composite event by counting the cardinality of that event. Classical probability is thus combinatorial.
+
+\newpage \newsection{Discrete Probability.}
+
+\subsection{Introduction.} Discrete Probability.
+
+\subsection{Definition.} A discrete random variable is a (measurable) function $X: \Omega \to \mathbb{Z}.$
+
+\subsection{Definition.} The probability mass function of a discrete rv $X$ is a probability measure $p: \mathbb{Z} \to \mathbb{R}$. In particular if a random variabe $X$ possesses pmf $p$, then 
+$$P(X = x) = p(x).$$
+
+\subsection{Definition.} The expectation of a discrete rv $X$ with pmf $p$
+$$\E(X) = \sum_{i=-\infty}^{\infty}xp(x).$$
+We sometimes denote $\mu = \E(X)$.
+
+\subsection{Theorem.} (Law of the unconscious statistician.) Let $f: \mathbb{R} \to \mathbb{R}$ be a function and let $X$ be a discrete rv with pmf $p$. Then, the expectation of $f(X)$ is 
+$$\E(f(X)) = \sum_{i=-\infty}^{\infty}f(x)p(x).$$
+
+\subsection{Definition.} Let $k = 1, 2, \ldots$. The $k$-th moment of a disrete rv $X$ is 
+$$\E(X^{k}) = \sum_{i=-\infty}^{\infty}x^{k}p(x).$$
+
+\subsection{Definition.} Let $k = 1, 2, \ldots$. The $k$-th moment central moment of a disrete rv $X$ is 
+$$\E((X-\mu)^{k}).$$
+
+\subsection{Definition.} The variance of a discrete rv $X$ is the second central moment 
+\begin{align*}
+    \Var(X) &= \E((X-\mu)^{2}) \\
+            &= \E(X^{2}) - \E(X)^{2}.
+\end{align*}
+
+\subsection{Definition.} The skewness of a discrete rv $X$ is the third central moment $\E((X-\mu)^{3})$.
+
+\subsection{Definition.} The kurtosis ('tailedness') of a discrete rv $X$ is the fourth central moment $\E((X-\mu)^{4})$. The excess kurtosis is $\E((X-\mu)^{4}) - 3$ (because the kurtosis of the normal distribution is $3$).
+
+\end{document}
