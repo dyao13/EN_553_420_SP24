@@ -12,7 +12,7 @@ cd EN_553_420_SP24
 ```
 
 # Introduction
-These notes follow the material presented in EN.553.420 taught by Professor Fred Torcaso during the semester of Spring 2025 at The Johns Hopkins University. These notes shall be brief as they are meant to supplement the lectures, homeworks, and notes provided by Professor Torcaso.
+These notes follow the material presented in EN.553.420 taught by Professor Fred Torcaso during the semester of Spring 2024 at The Johns Hopkins University. These notes shall be brief as they are meant to supplement the lectures, homeworks, and notes provided by Professor Torcaso.
 
 # Table of Contents
 0. Introduction (p. 2)
