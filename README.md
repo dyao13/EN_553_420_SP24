@@ -1,11 +1,11 @@
-# EN_553_431_FA24
+# EN_553_430
 
-Honors Mathematical Statistics
+Introduction to Probability
 
 ![Gilman Hall](https://github.com/dyao13/EN_553_420_SP24/blob/main/gilman_hall.jpg)
 
 # Installation
-To install `EN_553_431_FA24`:
+To install `EN_553_420`:
 ```
 git clone https://github.com/dyao13/EN_553_420_SP24.git
 cd EN_553_420_SP24
