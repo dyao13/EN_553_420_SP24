@@ -12,7 +12,7 @@
 
 \subsection{Introduction.} Introduction.
 
-\subsection{Remark.} These notes follow the material presented in EN.553.420 taught by Professor Fred Torcaso during the semester of Spring 2024 at The Johns Hopkins University. These notes shall be brief as they are meant to supplement the lectures, homeworks, and notes provided by Professor Torcaso.
+\subsection{Remark.} These notes follow the material presented in EN.553.420 Introduction to Probability taught by Professor Fred Torcaso during the semester of Spring 2024 at The Johns Hopkins University. These notes shall be brief as they are meant to supplement the lectures, homeworks, and notes provided by Professor Torcaso.
 
 \newpage \newsection{Probability Spaces.}
 
@@ -129,36 +129,57 @@ where $|\cdot|$ denotes the cardinality of the set $\cdot$.
 
 \subsection{Remark.} Since every singleton event is equiprobable, then we may determine the probability of a composite event by counting the cardinality of that event. Classical probability is thus combinatorial.
 
-\newpage \newsection{Discrete Probability.}
+\newpage \newsection{Random Variables.}
 
-\subsection{Introduction.} Discrete Probability.
+\subsection{Introduction.} Random Variables.
 
-\subsection{Definition.} A discrete random variable is a (measurable) function $X: \Omega \to \mathbb{Z}.$
+\subsection{Definition.} A discrete random variable $X$ is a (measurable) function $X: \Omega \to \mathbb{Z}.$
 
-\subsection{Definition.} The probability mass function of a discrete rv $X$ is a probability measure $p: \mathbb{Z} \to \mathbb{R}$. In particular if a random variabe $X$ possesses pmf $p$, then 
-$$P(X = x) = p(x).$$
+\subsection{Definition.} The probability mass function of a discrete rv $X$ is a probability measure $p: \mathbb{Z} \to \mathbb{R}$. In particular if a random variabe $X$ possesses pmf $p$, then the probability of event $A \subseteq \Omega$ is
+$$P(X \in A) = \sum_{x \in A}p(x).$$
+
+\subsection{Definition.} A continuous random variable $X$ is a (measurable) function $X: \Omega \to \mathbb{R}.$
+
+\subsection{Definition.} The probability density function of a continuous rv $X$ is a probability measure $f: \mathbb{R} \to \mathbb{R}$. In particular if a random variabe $X$ possesses pdf $f$, then the probability of event $A \subseteq \Omega$ is 
+$$P(X \in A) = \int_{A}f(x)dx.$$
+
+\subsection{Definition.} The support of a discrete rv $X$ with pmf $p$ is  
+$$\text{supp}(p) = \{x \in \mathbb{Z} : p(x) > 0\}.$$
+The support of a continuous rv $X$ with pdf $f$ is
+$$\text{supp}(f) = \{x \in \mathbb{R} : f(x) > 0\}.$$
+
+\subsection{Remark.} The following definitions sum over $\mathbb{Z}$ or integrate of $\mathbb{R}$. Since the pmf or pdf is zero off of the support, then we may equivalently sum or integrate over the support.
 
 \subsection{Definition.} The expectation of a discrete rv $X$ with pmf $p$
 $$\E(X) = \sum_{i=-\infty}^{\infty}xp(x).$$
+The expectation of a continuous rv $X$ with pdf $f$
+$$\E(X) = \int_{-\infty}^{\infty}xf(x)dx.$$
 We sometimes denote $\mu = \E(X)$.
 
-\subsection{Theorem.} (Law of the unconscious statistician.) Let $f: \mathbb{R} \to \mathbb{R}$ be a function and let $X$ be a discrete rv with pmf $p$. Then, the expectation of $f(X)$ is 
-$$\E(f(X)) = \sum_{i=-\infty}^{\infty}f(x)p(x).$$
+\subsection{Theorem.} (Law of the unconscious statistician.) Let $g: \mathbb{R} \to \mathbb{R}$ be a function. Let $X$ be a discrete rv with pmf $p$. The expectation of $g(X)$ is 
+$$\E(g(X)) = \sum_{i=-\infty}^{\infty}g(x)p(x).$$
+If instead $X$ is a continuous rv with pdf $f$, then the expectation of $f(X)$ is
+$$\E(g(X)) = \int_{-\infty}^{\infty}g(x)f(x)dx.$$
 
-\subsection{Definition.} Let $k = 1, 2, \ldots$. The $k$-th moment of a disrete rv $X$ is 
-$$\E(X^{k}) = \sum_{i=-\infty}^{\infty}x^{k}p(x).$$
+\subsection{Definition.} Let $k = 1, 2, \ldots$. The $k$-th moment of an rv $X$ is 
+$$\E(X^{k}).$$
 
-\subsection{Definition.} Let $k = 1, 2, \ldots$. The $k$-th moment central moment of a disrete rv $X$ is 
+\subsection{Definition.} Let $k = 1, 2, \ldots$. The $k$-th moment central moment of an rv $X$ is 
 $$\E((X-\mu)^{k}).$$
 
-\subsection{Definition.} The variance of a discrete rv $X$ is the second central moment 
+\subsection{Definition.} The variance of an rv $X$ is the second central moment 
 \begin{align*}
     \Var(X) &= \E((X-\mu)^{2}) \\
             &= \E(X^{2}) - \E(X)^{2}.
 \end{align*}
 
-\subsection{Definition.} The skewness of a discrete rv $X$ is the third central moment $\E((X-\mu)^{3})$.
+\subsection{Definition.} The skewness of an rv $X$ is the third central moment 
+$$\E((X-\mu)^{3}).$$
 
-\subsection{Definition.} The kurtosis ('tailedness') of a discrete rv $X$ is the fourth central moment $\E((X-\mu)^{4})$. The excess kurtosis is $\E((X-\mu)^{4}) - 3$ (because the kurtosis of the normal distribution is $3$).
+\subsection{Definition.} The kurtosis ('tailedness') of an rv $X$ is the fourth central moment 
+$$\E((X-\mu)^{4}).$$
+The excess kurtosis is $\E((X-\mu)^{4}) - 3$ (because the kurtosis of the normal distribution is $3$).
+
+\subsection{Definition.} Common distributions are found in the formula sheet.
 
 \end{document}
