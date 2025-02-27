@@ -129,7 +129,7 @@ where $|\cdot|$ denotes the cardinality of the set $\cdot$.
 
 \subsection{Remark.} Since every singleton event is equiprobable, then we may determine the probability of a composite event by counting the cardinality of that event. Classical probability is thus combinatorial.
 
-\subsection{Example.} Suppose that we have a standard 52-card deck from which we select a hand of five cards. THe probability that we have a full house is 
+\subsection{Example.} Suppose that we have a standard 52-card deck from which we select a hand of five cards. The probability that we have a full house is 
 $$(13)_{2}\binom{4}{3}\binom{4}{2} / \binom{52}{5} \approx 0.001441$$
 because we select an ordered pair of ranks (one rank for the three-of-a-kind and one rank for the pair) and then select the suits for the three-of-a-kind and the pair.
 
@@ -137,24 +137,88 @@ because we select an ordered pair of ranks (one rank for the three-of-a-kind and
 
 \subsection{Introduction.} Conditional Probability.
 
+\subsection{Definition.} For events $A, B \subseteq \Omega$, the conditional probability of $A$ given $B$ is 
+$$P(A \mid B) = \frac{P(A \cap B)}{P(B)}$$
+provided that $P(B) > 0$.
+
+\textbf{Theorem.} (Law of Total Probability) Let $B_{1}, B_{2}, \ldots$ be a partition of $\Omega$. For any event $A \subseteq \Omega$, we have that 
+$$P(A) = \sum_{i=1}^{\infty}P(A \mid B_{i})P(B_{i}).$$
+
+\textbf{Example.} Suppose that we have two coins, one fair and one with only heads. We select a coin at random and flip it $n$ times. Find the probability that we observe all heads.
+
+Let $A$ be the event that we select all heads and let $B, B^{c}$ be the events that we select the unfair coin and teh fair coin, respectively. We have that 
+\begin{align*}
+    P(A) &= P(A \mid B)P(B) + P(A \mid B^{c})P(B^{c}) \\
+         &= 1/2 + (1/2)^{n+1}.
+\end{align*}
+
+\subsection{Theorem.} (Bayes's Rule) For events $A, B \subseteq \Omega$, the conditional probability of $A$ given $B$ is 
+$$P(A \mid B) = \frac{P(B \mid A)P(A)}{P(B)}.$$
+
+\subsection{Proof.} (Continued.) Observe that 
+\begin{align*}
+    P(A \mid B) &= \frac{P(A \cap B)}{P(B)} \\
+                &= \frac{P(B \mid A)P(A)}{P(B)}.
+\end{align*}
+
+\subsection{Example.} Suppose that we have two coins, one fair and one with only heads. We select a coin at random and flip it $n$ times, observing all heads. Find the minimum number of heads to conclude that the coin is the unfair coin with probability greater than $p$.
+
+Let $A$ be the event that we select the unfair coin and $B$ be the event that we observe all heads. By Bayes's rule, we have that  
+\begin{align*}
+    P(A \mid B) &= \frac{P(B \mid A)P(A)}{P(B)} \\
+                &= \frac{P(B \mid A)P(A)}{P(B \mid A)P(A) + P(B \mid A^{c} \mid A^{c})} \\
+                &= \frac{1/2}{1/2 + (1/2)^{n+1}} \\
+                &= \frac{1}{1 + (1/2)^{n}}.
+\end{align*}
+If we want to solve for $n$, then we have that 
+\begin{align*}
+    p &<\frac{1}{1 + (1/2)^{n}} \\
+    2^{-n} &< \frac{1}{p} - 1,
+\end{align*}
+which yields our final answer of 
+$$n > \log_{2}\left(\frac{p}{1-p}\right).$$
+
+\textbf{Definition.} Two events $A, B \subseteq \Omega$ are independent if 
+$$P(A) = P(A \mid B).$$
+Equivalently, 
+$$P(A \cap B) = P(A)P(B).$$ Of course, $A$ is independent of $B$ if and only if $B$ is independent of $A$.
+
+\textbf{Definition.} Let $A_{1}, A_{2}, \ldots \subseteq \Omega$ be a sequence of events. The events are independent if for any index set $I \subseteq \mathbb{N}$, we have that
+$$P\left(\bigcap_{i \in I}A_{i}\right) = \prod_{i \in I}P(A_{i}).$$
+
+\textbf{Theorem.} If $A_{1}, A_{2}, \ldots \subseteq \Omega$ are independent, then replacing any event $A_{i}$ with its complement $A_{i}^{c}$ yields a sequence of independent events.
+
 \newpage \newsection{Random Variables.}
 
 \subsection{Introduction.} Random Variables.
 
-\subsection{Definition.} A discrete random variable $X$ is a (measurable) function $X: \Omega \to \mathbb{Z}.$
+\subsection{Definition.} A random variable is a (measurable) function $X: \Omega \to \mathbb{R}$.
+
+\subsection{Definition.} The cumulative distribution function (cdf) of a random variable $X$ is a function $F: \mathbb{R} \to \mathbb{R}$ defined by
+$$F(x) = P(X \leq x).$$
+A cdf has the properties 
+\begin{enumerate}
+\item[(1)] $\lim_{x \to -\infty}F(x) = 0$.
+\item[(2)] $\lim_{x \to \infty}F(x) = 1$.
+\item[(3)] $F$ is nondecreasing.
+\item[(4)] $F$ is right-continuous.
+\end{enumerate}
+
+\subsection{Definition.} A discrete random variable $X$ is a (measurable) function $X: \Omega \to \text{supp}(X)$ where $\text{supp}(X)$ is a countable set. We shall furthermore take $\text{supp}(X) \subseteq \mathbb{Z}$.
 
 \subsection{Definition.} The probability mass function of a discrete rv $X$ is a probability measure $p: \mathbb{Z} \to \mathbb{R}$. In particular if a random variabe $X$ possesses pmf $p$, then the probability of event $A \subseteq \Omega$ is
 $$P(X \in A) = \sum_{x \in A}p(x).$$
 
-\subsection{Definition.} A continuous random variable $X$ is a (measurable) function $X: \Omega \to \mathbb{R}.$
+\subsection{Definition.} A continuous random variable $X$ is a (measurable) function $X: \Omega \to \mathbb{R}$ with a continuous cdf $F: \mathbb{R} \to \mathbb{R}$.
 
-\subsection{Definition.} The probability density function of a continuous rv $X$ is a probability measure $f: \mathbb{R} \to \mathbb{R}$. In particular if a random variabe $X$ possesses pdf $f$, then the probability of event $A \subseteq \Omega$ is 
+\subsection{Definition.} If $X$ is absolutely continuous, then there exists a probability density function (pdf) $f: \mathbb{R} \to \mathbb{R}$. In particular if a random variabe $X$ possesses pdf $f$, then the probability of event $A \subseteq \Omega$ is 
 $$P(X \in A) = \int_{A}f(x)dx.$$
 
 \subsection{Definition.} The support of a discrete rv $X$ with pmf $p$ is  
 $$\text{supp}(p) = \{x \in \mathbb{Z} : p(x) > 0\}.$$
 The support of a continuous rv $X$ with pdf $f$ is
 $$\text{supp}(f) = \{x \in \mathbb{R} : f(x) > 0\}.$$
+An equivalent notation for either is $\text{supp}(X)$.
 
 \subsection{Remark.} The following definitions sum over $\mathbb{Z}$ or integrate of $\mathbb{R}$. Since the pmf or pdf is zero off of the support, then we may equivalently sum or integrate over the support.
 
@@ -168,6 +232,9 @@ We sometimes denote $\mu = \E(X)$.
 $$\E(g(X)) = \sum_{i=-\infty}^{\infty}g(x)p(x).$$
 If instead $X$ is a continuous rv with pdf $f$, then the expectation of $f(X)$ is
 $$\E(g(X)) = \int_{-\infty}^{\infty}g(x)f(x)dx.$$
+
+\subsection{Theorem.} Expectation is a linear operator, i.e., for two random variables $X, Y$ and $a, b \in \mathbb{R}$, we have that 
+$$\E(aX + bY) = a\E(X) + b\E(Y).$$
 
 \subsection{Definition.} Let $k = 1, 2, \ldots$. The $k$-th moment of an rv $X$ is 
 $$\E(X^{k}).$$
