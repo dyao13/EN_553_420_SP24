@@ -204,15 +204,34 @@ A cdf has the properties
 \item[(4)] $F$ is right-continuous.
 \end{enumerate}
 
-\subsection{Definition.} A discrete random variable $X$ is a (measurable) function $X: \Omega \to \text{supp}(X)$ where $\text{supp}(X)$ is a countable set. We shall furthermore take $\text{supp}(X) \subseteq \mathbb{Z}$.
+\subsection{Definition.} A discrete random variable $X$ is a (measurable) function $X: \Omega \to \text{supp}(X)$ where $\text{supp}(X)$ is a countable set. We shall furthermore take $\text{supp}(X) \subseteq \mathbb{Z}$ in this class. Since $\text{supp}(X)$ is countable, then the cdf $F$ of a discrete random variable $X$ is a step function.
 
-\subsection{Definition.} The probability mass function of a discrete rv $X$ is a probability measure $p: \mathbb{Z} \to \mathbb{R}$. In particular if a random variabe $X$ possesses pmf $p$, then the probability of event $A \subseteq \Omega$ is
+\subsection{Definition.} The probability mass function (pmf) of a discrete random variable $X$ is a probability measure $p: \mathbb{Z} \to \mathbb{R}$. A pmf, in being a probability measure, has the properties 
+\begin{enumerate}
+\item[(1)] $p(x) \geq 0$.
+\item[(2)]
+$$\sum_{x \in \mathbb{Z}}p(x) = 1.$$
+\end{enumerate}
+In particular, if a random variable $X$ possesses a pmf $p$, then the probability of event $A \subseteq \Omega$ is
 $$P(X \in A) = \sum_{x \in A}p(x).$$
 
 \subsection{Definition.} A continuous random variable $X$ is a (measurable) function $X: \Omega \to \mathbb{R}$ with a continuous cdf $F: \mathbb{R} \to \mathbb{R}$.
 
-\subsection{Definition.} If $X$ is absolutely continuous, then there exists a probability density function (pdf) $f: \mathbb{R} \to \mathbb{R}$. In particular if a random variabe $X$ possesses pdf $f$, then the probability of event $A \subseteq \Omega$ is 
+\subsection{Definition.} If $X$ is absolutely continuous (we shall use continuous and absolutely continuous interchangeably in this class), then there exists a probability density function (pdf) $f: \mathbb{R} \to \mathbb{R}$ such that 
+\begin{align*}
+    f(x) &= F'(x) \\
+    F(x) &= \int_{-\infty}^{x}f(t)dt.
+\end{align*}
+A pdf has the properties 
+\begin{enumerate}
+\item[(1)] $f(x) \geq 0$.
+\item[(2)] 
+$$\int_{\mathbb{R}}f(x)dx = 1.$$
+\end{enumerate}
+In particular, if a random variable $X$ possesses pdf $f$, then the probability of event $A \subseteq \Omega$ is 
 $$P(X \in A) = \int_{A}f(x)dx.$$
+
+\subsection{Note.} If a random variable $X$ has a cdf that is neither a step function nor a continuous function, then $X$ is neither discrete nor continuous.
 
 \subsection{Definition.} The support of a discrete rv $X$ with pmf $p$ is  
 $$\text{supp}(p) = \{x \in \mathbb{Z} : p(x) > 0\}.$$
