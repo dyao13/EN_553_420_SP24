@@ -4,19 +4,19 @@
 
 \begin{document}
 
-\maketitle
+\newpage \maketitle
 
-\tableofcontents
+\newpage \tableofcontents
 
-\newpage \section{Introduction.}
+\newpage \newsection{Introduction.}
 
-\subsection{Introduction.} Introduction.
+\subsection{Section.} Introduction.
 
 \subsection{Remark.} These notes follow the material presented in EN.553.420 Introduction to Probability taught by Professor Fred Torcaso during the semester of Spring 2024 at The Johns Hopkins University. These notes shall be brief as they are meant to supplement the lectures, homeworks, and notes provided by Professor Torcaso.
 
-\newpage \section{Probability Spaces.}
+\newpage \newsection{Probability Spaces.}
 
-\subsection{Introduction} Probabilty Spaces.
+\subsection{Section.} Probabilty Spaces.
 
 \subsection{Remark.} The following definitions shall be informal. For a more formal treatment of probability, please refer to the EN.553.430 Mathematical Statistics.
 
@@ -58,9 +58,9 @@ $$P(A \cup B \cup C) = P(A) + P(B) + P(C) - P(A \cap B) - P(A \cap C) - P(B \cap
 
 \subsection{Proof.} (Continued.) The proof is by induction.
 
-\newpage \section{Combinatorics.}
+\newpage \newsection{Combinatorics.}
 
-\subsection{Combinatorics.} Combinatorics.
+\subsection{Section.} Combinatorics.
 
 \subsection{Definition.} If $n \in \mathbb{N}$, then then the factorial is defined as 
 $$n! = n(n-1)\ldots1.$$
@@ -82,6 +82,8 @@ $$\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}.$$
 
 \subsection{Theorem.} (Binomial theorem.) If $a, b \in \mathbb{R}$ and $n = 1, 2, \ldots$, then 
 $$(a + b)^{n} = \sum_{k=1}^{n}\binom{n}{k}a^{n}b^{n-k}.$$
+
+\subsection{Proof.} (Continued.) The proof is left as an exercise to the student.
 
 \subsection{Corollary.} (Continued.)
 $$\sum_{k=1}^{n}\binom{n}{k} = 2^{n}.$$
@@ -119,9 +121,11 @@ $$\binom{n+r-1}{n} = \binom{n+r-1}{r-1}.$$
 
 \subsection{Lemma.} Suppose that we have a two-step experiment. There are $m$ ways to perform the first step. For each of those ways, there are $n$ ways to perform the second step. Then, there are $mn$ ways to perform the experiment in total.
 
-\newpage \section{Classical Probability.}
+\subsection{Proof.} (Continued.) The proof is not interesting.
 
-\subsection{Introduction.} Classical Probability.
+\newpage \newsection{Classical Probability.}
+
+\subsection{Section.} Classical Probability.
 
 \subsection{Definition.} Suppose that $\Omega$ is a finite set and $A \subseteq \Omega$. Furthermore, suppose that every singleton subset of $\Omega$ is equiprobable. Then, 
 $$P(A) = \frac{|\Omega|}{|A|}$$
@@ -135,7 +139,7 @@ because we select an ordered pair of ranks (one rank for the three-of-a-kind and
 
 \newpage \newsection{Conditional Probability.}
 
-\subsection{Introduction.} Conditional Probability.
+\subsection{Section.} Conditional Probability.
 
 \subsection{Definition.} For events $A, B \subseteq \Omega$, the conditional probability of $A$ given $B$ is 
 $$P(A \mid B) = \frac{P(A \cap B)}{P(B)}$$
@@ -143,6 +147,8 @@ provided that $P(B) > 0$.
 
 \textbf{Theorem.} (Law of Total Probability) Let $B_{1}, B_{2}, \ldots$ be a partition of $\Omega$. For any event $A \subseteq \Omega$, we have that 
 $$P(A) = \sum_{i=1}^{\infty}P(A \mid B_{i})P(B_{i}).$$
+
+\subsection{Proof.} (Continued.) The proof is a consequence of the Komolgorov axioms.
 
 \textbf{Example.} Suppose that we have two coins, one fair and one with only heads. We select a coin at random and flip it $n$ times. Find the probability that we observe all heads.
 
@@ -188,9 +194,11 @@ $$P\left(\bigcap_{i \in I}A_{i}\right) = \prod_{i \in I}P(A_{i}).$$
 
 \textbf{Theorem.} If $A_{1}, A_{2}, \ldots \subseteq \Omega$ are independent, then replacing any event $A_{i}$ with its complement $A_{i}^{c}$ yields a sequence of independent events.
 
+\subsection{Proof.} (Continued.) The proof is beyond the scope of this course.
+
 \newpage \newsection{Random Variables.}
 
-\subsection{Introduction.} Random Variables.
+\subsection{Section.} Random Variables.
 
 \subsection{Definition.} A random variable is a (measurable) function $X: \Omega \to \mathbb{R}$.
 
@@ -231,7 +239,7 @@ $$\int_{\mathbb{R}}f(x)dx = 1.$$
 In particular, if a random variable $X$ possesses pdf $f$, then the probability of event $A \subseteq \Omega$ is 
 $$P(X \in A) = \int_{A}f(x)dx.$$
 
-\subsection{Note.} If a random variable $X$ has a cdf that is neither a step function nor a continuous function, then $X$ is neither discrete nor continuous.
+\subsection{Remark.} If a random variable $X$ has a cdf that is neither a step function nor a continuous function, then $X$ is neither discrete nor continuous.
 
 \subsection{Definition.} The support of a discrete rv $X$ with pmf $p$ is  
 $$\text{supp}(p) = \{x \in \mathbb{Z} : p(x) > 0\}.$$
@@ -254,6 +262,8 @@ $$\E(g(X)) = \int_{-\infty}^{\infty}g(x)f(x)dx.$$
 
 \subsection{Theorem.} Expectation is a linear operator, i.e., for two random variables $X, Y$ and $a, b \in \mathbb{R}$, we have that 
 $$\E(aX + bY) = a\E(X) + b\E(Y).$$
+
+\subsection{Proof.} (Continued.) The proof is trivial.
 
 \subsection{Definition.} Let $k = 1, 2, \ldots$. The $k$-th moment of an rv $X$ is 
 $$\E(X^{k}).$$
@@ -279,7 +289,9 @@ $$M(\theta) = \E(e^{\theta X})$$
 whenever the expectation exists on an open interval of $\theta$ around $0$. If the mgf exists, then the $k$th moment of $X$ is equal to 
 $$\E(X^{k}) = M^{(k)}(0).$$
 
-\subsection{Theorem.} If the moment generating function of two rvs $X$ and $Y$ are equal, then $X$ and $Y$ have the same distribution.
+\subsection{Theorem.} (Continuity theorem.) If the moment generating function of two rvs $X$ and $Y$ are equal, then $X$ and $Y$ have the same distribution.
+
+\subsection{Proof.} (Continued.) The proof is beyond the scope of this course.
 
 \subsection{Lemma.} Suppose that $X$ has mgf $M_{X}(\theta)$. Then the mgf of $Y = aX + b$ is
 $$M_{Y}(\theta) = e^{b\theta}M_{X}(a\theta).$$
@@ -312,18 +324,126 @@ $$M_{Y}(\theta) = e^{b\theta}M_{X}(a\theta).$$
 
 \newpage \newsection{Joint Distributions.}
 
-\subsection{Introduction.} Joint Distributions.
+\subsection{Section.} Joint Distributions.
+
+\subsection{Definition.} A joint cdf of a collection of rvs $\{X_{\alpha}\}$ indexed by $J$ is a function $F: \mathbb{R}^{|J|} \to \mathbb{R}$ defined by 
+$$F(x_{1}, \ldots, x_{|J|}) = P(X_{1} \leq x_{1}, \ldots, X_{|J|} \leq x_{|J|}).$$
+$\{X_{\alpha}\}$ are independent if and only if
+$$F(x_{1}, \ldots, x_{|J|}) = \prod_{\alpha \in J}F_{\alpha}(x_{\alpha})$$
+where $F_{\alpha}$ is the cdf of $X_{\alpha}$. Similar definitions hold for joint pmfs and joint pdfs.
+
+\subsection{Example.} The joint pmf of two discrete rvs $X_{1}, X_{2}$ with pmfs $p_{1}, p{2}$ is $p_{12}: \mathbb{Z}^{2} \to \mathbb{R}$ defined by
+\begin{align*}
+    p_{12}(x_{1}, x_{2}) &= P(X_{1} = x_{1}, X_{2} = x_{2}) \\
+                         &= p_{1}(x_{1})p_{2}(x_{2} \mid x_{1}) \\
+                         &= p_{2}(x_{2})p_{1}(x_{1} \mid x_{2}).
+\end{align*}
+$X_{1}$ and $X_{2}$ are independent if and only if
+$$p_{12}(x_{1}, x_{2}) = p_{1}(x_{1})p_{2}(x_{2}).$$
+
+\subsection{Example.} The joint pdf of two continuous rvs $X_{1}, X_{2}$ with pdfs $f_{1}, f_{2}$ is $f_{12}: \mathbb{R}^{2} \to \mathbb{R}$ defined by
+\begin{align*}
+    f_{12}(x_{1}, x_{2}) &= P(X_{1} \leq x_{1}, X_{2} \leq x_{2}) \\
+                         &= f_{1}(x_{1})f_{2}(x_{2} \mid x_{1}) \\
+                         &= f_{2}(x_{2})f_{1}(x_{1} \mid x_{2}).
+\end{align*}
+$X_{1}$ and $X_{2}$ are independent if and only if
+$$f_{12}(x_{1}, x_{2}) = f_{1}(x_{1})f_{2}(x_{2}).$$
+
+\subsection{Remark.} If $X_{1}$ is a discrete rv with pmf $p_{1}$ and $X_{2}$ is a continuous rv with pdf $f_{2}$, then the joint distribution is mixed. These distributions are not common in this course.
+
+\subsection{Lemma.} If $X_{1}, \ldots, X_{n}$ are rvs with joint pmf $p_{12\ldots n}$, then the marginal pmf of $X_{i}$ is
+$$p_{i}(x_{i}) = \sum_{x_{j} \neq x_{i}}p_{12\ldots n}(x_{1}, \ldots, x_{n})$$
+where the sum is over all $x_{j} \in \mathbb{Z}$ such that $j \neq i$. If $X_{1}, \ldots, X_{n}$ are continuous rvs with joint pdf $f_{12\ldots n}$, then the marginal pdf of $X_{i}$ is
+$$f_{i}(x_{i}) = \int_{\mathbb{R}^{n-1}}f_{12\ldots n}(x_{1}, \ldots, x_{n})dx_{j \neq i}$$
+where the integral is over all $x_{j} \in \mathbb{R}$ such that $j \neq i$.
+
+\subsection{Proof.} (Continued.) The proof is trivial.
+
+\subsection{Remark.} To find the marginals of a mixed distribution, we sum over the discrete rvs and integrate over the continuous rvs.
+
+\subsection{Example.} Suppose that $X \sim \text{Poisson}(\lambda)$ and $Y|X \sim \text{Binomial}(X, p)$. Then the joint pmf of $X$ and $Y$ is
+$$p_{XY}(x, y) = \frac{\lambda^{x}e^{-\lambda}}{x!}\binom{x}{y}p^{y}(1-p)^{x-y}$$
+The marginal pmf of $Y$ is 
+\begin{align*}
+    p_{Y}(y) &= \sum_{x=y}^{\infty}\frac{\lambda^{x}e^{-\lambda}}{x!}\binom{x}{y}p^{y}(1-p)^{x-y} \\
+             &= \frac{(\lambda p)^{y}e^{-\lambda}}{y!}\sum_{x=y}^{\infty}\frac{(\lambda(1-p))^{x-y}}{(x-y)!} \\
+             &= \frac{(\lambda p)^{y}e^{-\lambda}}{y!}(1-p)^{y} \sim \text{Poisson}(\lambda p).
+\end{align*}
 
 \newpage \newsection{Transformations of Random Variables.}
 
-\subsection{Introduction.} Transformations of Random Variables.
+\subsection{Section.} Transformations of Random Variables.
+
+\subsection{Theorem.} (CDF method.) Let $X$ be a continuous rv with pdf $f_{X}$. Let $Y = g(X)$ where $g: \mathbb{R} \to \mathbb{R}$ is a continuous and strictly increasing function. Then the pdf of $Y$ is 
+$$f_{Y}(y) = f_{X}(g^{-1}(y))\frac{d}{dy}g^{-1}(y).$$
+The support of $Y$ is the image of the support of $X$ under the transformation $g$.
+
+\subsection{Proof.} (Continued.) The cdf of $Y$ is 
+\begin{align*}
+    F_{Y}(y) &= P(Y \leq y) \\
+             &= P(g(X) \leq y) \\
+             &= P(X \leq g^{-1}(y)) \\
+             &= F_{X}(g^{-1}(y)).
+\end{align*}
+The pdf of $Y$ is the derivative of the cdf of $Y$, which is 
+\begin{align*}
+    f_{Y}(y) &= \frac{d}{dy}F_{Y}(y) \\
+             &= \frac{d}{dy}F_{X}(g^{-1}(y)) \\
+             &= f_{X}(g^{-1}(y))\frac{d}{dy}g^{-1}(y).
+\end{align*}
+
+\subsection{Remark.} If $g$ is a continuous and strictly decreasing function, then the pdf of $Y$ is
+$$f_{Y}(y) = -f_{X}(g^{-1}(y))\frac{d}{dy}g^{-1}(y).$$
+
+\subsection{Remark.} It is often easier to write the cdf as in the proof and then differentiate to find the pdf.
+
+\subsection{Example.} Suppose that $X \sim \text{Exp}(\lambda)$ and $Y = X^{2}$. $g: x \mapsto x^{2}$ is a continuous and strictly increasing function on the support of $X$. The cdf of $Y$ is 
+\begin{align*}
+    F_{Y}(y) &= P(Y \leq y) \\
+             &= P(X^{2} \leq y) \\
+             &= P(X \leq \sqrt{y}) \\
+             &= \int_{0}^{\sqrt{y}}\lambda e^{-\lambda x}dx.
+\end{align*}
+The pdf is then 
+\begin{align*}
+    f_{Y}(y) &= \frac{d}{dy}\int_{0}^{\sqrt{y}}\lambda e^{-\lambda x}dx \\
+             &= \lambda e^{-\lambda \sqrt{y}}\frac{1}{2\sqrt{y}} \\
+             &= \frac{\lambda}{2\sqrt{y}}e^{-\lambda \sqrt{y}}
+\end{align*}
+by Leibniz's rule. The support of $Y$ is $y \in [0, \infty)$.
+
+\subsection{Theorem.} (Method of Jacobians.) Let $X_{1}, \ldots, X_{n}$ be continuous rvs with joint pdf $f_{X_{1}\ldots X_{n}}$. Let $Y_{1}, \ldots, Y_{n}$ be continuous rvs defined by the transformation $Y = g(X)$ where $g: \mathbb{R}^{n} \to \mathbb{R}^{n}$ is a continuously differentiable. Then the joint pdf of $Y$ is
+$$f_{Y_{1}\ldots Y_{n}}(y_{1}, \ldots, y_{n}) = f_{X_{1}\ldots X_{n}}(g^{-1}(y))\left|\det J \right|$$
+where $J$ is the Jacobian matrix of $g^{-1}$ defined by
+$$J = \left( \frac{\partial g^{-1}_{i}}{\partial x_{j}} \right).$$
+The support of $Y$ is the image of the support of $X$ under the transformation $g$.
+
+\subsection{Example.} Suppose that $X, Y \sim \text{Exp}(\lambda)$ and that $U = X/Y$. To find the pdf of $U$, we define $V = Y$ such that the transformation is $g: (X, Y) \mapsto (U, V) = (X/Y, Y)$ is continuously differentiable (almost everywhere). The inverse transformation is $g^{-1}: (U, V) \mapsto (X, Y) = (UV, V)$ with Jacobian 
+$$J = \begin{pmatrix}
+    V & U \\
+    0 & 1
+\end{pmatrix},$$
+so $|J| = V$. The joint pdf of $X$ and $Y$ is 
+$$f_{XY}(x, y) = \lambda^{2}e^{-\lambda x}e^{-\lambda y},$$
+so the joint pdf of $U$ and $V$ is
+\begin{align*}
+    f_{UV}(u, v) &= \lambda^{2}e^{-\lambda uv}e^{-\lambda v}v \\
+                 &= \lambda^{2}ve^{-\lambda v(1 + u)}.
+\end{align*}
+To find the marginal pdf of $U$, we integrate out $V$ to obtain 
+\begin{align*}
+    f_{U}(u) &= \int_{0}^{\infty}\lambda^{2}ve^{-\lambda v(1 + u)}dv \\
+             &= \frac{1}{(1 + u)^{2}}
+\end{align*}
+for $u \in [0, \infty)$.
 
 \newpage \newsection{Order Statistics.}
 
-\subsection{Introduction.} Order Statistics.
+\subsection{Section.} Order Statistics.
 
 \newpage \newsection{Convergences and Inequalities.}
 
-\subsection{Introduction.} Convergences and Inequalities.
+\subsection{Section.} Convergences and Inequalities.
 
 \end{document}
